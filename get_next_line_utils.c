@@ -39,3 +39,45 @@ char	*ft_strdup(const char *src)
 	while (src[len])
 	{
 		len++;
+	}
+	dest = malloc((len + 1) * sizeof(char));
+	if (dest == NULL)
+	{
+		return (NULL);
+	}
+	while (src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	length;
+	char	*result;
+
+	i = 0;
+	if (s == NULL)
+		return (NULL);
+	length = ft_strlen(s);
+	if (start >= length)
+		return (NULL);
+	if (length - start < len)
+	{
+		len = length - start;
